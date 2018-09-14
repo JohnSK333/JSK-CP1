@@ -13,7 +13,7 @@ int read_file( char* filename, char **buffer){
 	FILE* infile;
 
 	if((infile = fopen(filename,"r")) == NULL){
-		fprintf(stderr, "Error with file");
+		fprintf(stderr, "Error with file\n");
 		exit(1);
 	}
 
@@ -34,7 +34,8 @@ int write_file(char* filename, char *buffer, int size){
 	FILE* out =  fopen(filename,"w");
 	int i;
 	char* c;
-	for(i = size-1; i >= 0; i--){
+
+	for(i = 1; i <= size; i++){
 		c = (buffer + i);
 		fwrite(c,1,1,out);
 	}
